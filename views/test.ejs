@@ -1,0 +1,61 @@
+<%- include('./partials/header.ejs') %>
+
+
+
+    <div class="bodyRow">
+        <div class="col-left"></div>
+        <div class="col-centre">
+
+            <h1>Welcome to My Blog</h1>
+            <p>This is a blog website built with nodejs and EJS</p>
+            <form action="/submit" method="post">
+                <label>Name:</label><br>
+                <input type="text" name="name" placeholder="Your name" required><br>
+                <label>Category:</label><br>
+                <input type="text" name="category" placeholder="Your Post  Category" required><br>
+
+                <textarea name="description" id="" placeholder="Create Post"></textarea><br>
+                <label for="file">Select a file:</label><br>
+                <input type="file" name="image" id="postImage">
+                <input type="submit" value="Create Post">
+            </form>
+
+
+
+
+
+            <div class="card_container">
+
+
+                <% myposts.forEach(post => { %>
+
+                    <div class="cards">
+                        <strong><%= post.author %></strong><br><br>
+                        <%= post.category %>
+                            <p>
+                                <%= post.description %>
+                            </p>
+                            <img src="<%= post.image %>" alt="Post Image" style="width:100px;height:auto;">
+
+                            <div class="crudBtns">
+                                <!-- Delete form -->
+                                <form action="/delete/<%= post.id %>" method="POST" style="display:inline;">
+                                    <button type="submit">Delete</button>
+                                </form>
+                                <!-- edit form -->
+                                <form action="/edit/<%= post.id %>" method="PATCH" style="display:inline;">
+                                    <button type="submit">edit</button>
+                                </form>
+                            </div>
+
+                    </div>
+                    <% }) %>
+
+            </div>
+
+        </div>
+        <div class="col-right"></div>
+    </div>
+
+
+    <%- include('./partials/footer.ejs') %>

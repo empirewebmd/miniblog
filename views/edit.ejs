@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/styles/edit.css">
+    <link rel="stylesheet" href="/styles/edit.css">
+</head>
+
+<body>
+
+
+
+
+    <div class="bodyContainer">
+        <div class="col-left">1</div>
+        <div class="col-centre">
+
+            <h1>Edit Post</h1>
+            <form action="/update/<%= post.id %>" method="POST">
+                <label for="category">Category:</label>
+                <input type="text" id="category" name="category" value="<%= post.category %>" required>
+
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" required><%= post.description %></textarea>
+
+                <label for="name">Author:</label>
+                <input type="text" id="name" name="name" value="<%= post.author %>" required>
+
+                <label for="image">Image URL:</label>
+                <input type="text" id="image" name="image" value="<%= post.image %>">
+
+                <button type="submit">Update</button>
+            </form>
+            <a href="/">Back to Post</a>
+
+
+        </div>
+        <div class="col-rigtt">3</div>
+    </div>
+</body>
+
+
+
+<script>
+    alert('hey')
+</script>
+
+</html>
